@@ -51,7 +51,7 @@ object Triple {
     helper(checkAgainstList1, Option.empty)
   }
 
-  // ----------- Here the fast, but not so nice/clean part
+  // ----------- Here begins the NOT functional (dirty) part
 
   def findFasterButNotFunctional(numbers: Vector[Int]): Int = {
     var index1 = 0
