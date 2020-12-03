@@ -8,8 +8,8 @@ object Day2 {
     val lines = FileReader.asStrings("day2/puzzle1.txt")
 
     /*
-      For time measurements, it makes no sense to run the puzzles/tasks sequential. I'm not sure why but every following
-      task is faster (perhaps the GarbageCollector doesn't cleanup everything and it's reused.. but honestly
+      For time measurements, it makes no sense to run the puzzles/tasks "stand alone". I'm not sure why but every following
+      task is faster (perhaps the GarbageCollector doesn't cleanup everything and something is reused... but honestly
       I don't know). So if time should be measured, comment out the other 3 tasks
     */
 
