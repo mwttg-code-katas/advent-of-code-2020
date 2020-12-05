@@ -8,3 +8,4 @@ https://adventofcode.com/2020
 | 02  | 104 ms                | 116 ms                    | 101 ms                | 93 ms                     |
 | 03  | 3 ms                  |                           | 101 ms                |                           |
 | 04  | 132 ms                |                           | 168 ms                |                           |
+| 05  | 97 ms                 |                           | 195 ms                |                           |

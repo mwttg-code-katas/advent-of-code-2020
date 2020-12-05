@@ -1,11 +1,11 @@
-package de.advent.of.code.day3
+package de.advent.of.code.day5
 
 import de.advent.of.code.utils.{FileReader, StopWatch}
 
-object Day3 {
+object Day5 {
 
   def main(args: Array[String]): Unit = {
-    val input = FileReader.asStrings("day3/puzzle.txt")
+    val input = FileReader.asStrings("day5/puzzle.txt")
 
     /*
       For time measurements, it makes no sense to run the puzzles/tasks "in a sequence". I'm not sure why but every following
@@ -18,13 +18,15 @@ object Day3 {
   }
 
   private def puzzleOne(input: Vector[String]): Unit = {
-    val slope  = Slope(3, 1)
-    val result = StopWatch.measure(() => TreeEncounter.countTrees(input, slope))
+    val result = StopWatch.measure(() => BoardingPass
+      .getAll(input)
+      .map(boardingPass => Seat.getSeatId(boardingPass))
+      .max)
     println(s"Result = '${result.result}' - took ${result.executionTime} ms")
   }
 
   private def puzzleTwo(input: Vector[String]): Unit = {
-    val result = StopWatch.measure(() => AllSlopes.countTrees2(input))
+    val result = StopWatch.measure(() => FindMissingSeatId.find(input))
     println(s"Result = '${result.result}' - took ${result.executionTime} ms")
   }
 }
