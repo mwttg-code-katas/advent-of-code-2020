@@ -20,4 +20,12 @@ object FileReader {
         exception.printStackTrace()
         Vector.empty
     }
+
+  def asLongs(filename: String): Vector[Long] =
+    Try(Source.fromResource(filename).getLines().toVector) match {
+      case Success(lines) => lines.map(number => number.toLong)
+      case Failure(exception) =>
+        exception.printStackTrace()
+        Vector.empty
+    }
 }
