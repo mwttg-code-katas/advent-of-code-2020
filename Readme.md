@@ -13,3 +13,4 @@ https://adventofcode.com/2020
 | 07  | 254 ms                |                           |                       |                           |
 | 08  | 148 ms                |                           | 667 ms                |                           |
 | 09  | 27 ms                 |                           | 202 ms                |                           |
+| 10  | 6 ms                  |                           |                       |                           |
