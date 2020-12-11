@@ -15,12 +15,8 @@ object WaitingArea {
       if (isStable) {
         seats
       } else {
-        println("#")
         val nextStage = nextStep(seats)
-
-        println("!")
-        val stable = seats.toSet == nextStage.toSet
-        println("?")
+        val stable    = seats.toSet == nextStage.toSet
 
         helper(nextStage, stable)
       }
@@ -42,20 +38,19 @@ object WaitingArea {
     })
   }
 
-  private def getOccupiedNeighbours(seat     : Seat,
+  private def getOccupiedNeighbours(seat: Seat,
                                     seats    : Vector[Seat]) = {
-    val topLeft     = seats.find(r => r.x == seat.x - 1 && r.y == seat.y - 1 && r.isOccupied)
-    val top         = seats.find(r => r.x == seat.x && r.y == seat.y - 1 && r.isOccupied)
-    val topRight    = seats.find(r => r.x == seat.x + 1 && r.y == seat.y - 1 && r.isOccupied)
-    val left        = seats.find(r => r.x == seat.x - 1 && r.y == seat.y && r.isOccupied)
-    val right       = seats.find(r => r.x == seat.x + 1 && r.y == seat.y && r.isOccupied)
-    val bottomLeft  = seats.find(r => r.x == seat.x - 1 && r.y == seat.y + 1 && r.isOccupied)
-    val bottom      = seats.find(r => r.x == seat.x && r.y == seat.y + 1 && r.isOccupied)
-    val bottomRight = seats.find(r => r.x == seat.x + 1 && r.y == seat.y + 1 && r.isOccupied)
+    val result = seats.filter(r =>
+      (r.x == seat.x - 1 && r.y == seat.y - 1 && r.isOccupied) ||
+        (r.x == seat.x && r.y == seat.y - 1 && r.isOccupied) ||
+        (r.x == seat.x + 1 && r.y == seat.y - 1 && r.isOccupied) ||
+        (r.x == seat.x - 1 && r.y == seat.y && r.isOccupied) ||
+        (r.x == seat.x + 1 && r.y == seat.y && r.isOccupied) ||
+        (r.x == seat.x - 1 && r.y == seat.y + 1 && r.isOccupied) ||
+        (r.x == seat.x && r.y == seat.y + 1 && r.isOccupied) ||
+        (r.x == seat.x + 1 && r.y == seat.y + 1 && r.isOccupied))
 
-    Set(topLeft, top, topRight, left, right, bottomLeft, bottom, bottomRight)
-      .flatten
-      .size
+    result.size
   }
 
   def init(input: Vector[String]): Vector[Seat] = {
