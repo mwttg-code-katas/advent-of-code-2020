@@ -24,6 +24,6 @@ https://adventofcode.com/2020
 | 18  |                       |                           |                       |                           |
 | 19  |                       |                           |                       |                           |
 | 20  |                       |                           |                       |                           |
-| 21  | 249 ms                |                           |                       |                           |
+| 21  | 249 ms                |                           | 224 ms                |                           |
 
 [p7_2]: src/main/scala/de/advent/of/code/day7/solution.png

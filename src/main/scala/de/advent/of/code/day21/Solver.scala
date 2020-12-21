@@ -4,6 +4,16 @@ import scala.annotation.tailrec
 
 object Solver {
 
+  def part2(input: Vector[String]): String = {
+    val foods                  = Food.getAll(input)
+    val ingredientsByAllergens = mapAllergens(foods)
+    val reduced                = reduce(ingredientsByAllergens)
+    val allergenPerFood        = reduced.map(r => r._1 -> r._2.head)
+    allergenPerFood.keys.toVector.sorted.map(a => allergenPerFood(a)).mkString(",")
+  }
+
+
+
   def all(input: Vector[String]): Int = {
     val foods                  = Food.getAll(input)
     val ingredientsByAllergens = mapAllergens(foods)
